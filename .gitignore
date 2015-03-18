@@ -1,0 +1,74 @@
+OpenCV/ipch/
+OpenCV/*.vsp
+OpenCV/*.suo
+OpenCV/*.opensdf
+OpenCV/*.sdf
+OpenCV/*.ipch
+OpenCV/*.psess
+OpenCV/*.pdb
+OpenCV/*.a
+OpenCV/exe/MultiTrackCLM/Debug/
+OpenCV/exe/MultiTrackCLM/Release/
+OpenCV/lib/local/CLM/Debug/
+OpenCV/lib/local/CLM/Release/
+OpenCV/exe/Recording/Debug/
+OpenCV/exe/SimpleCLM/Debug/
+OpenCV/exe/SimpleCLMImg/Debug/
+OpenCV/exe/Recording/Release/
+OpenCV/exe/SimpleCLM/Release/
+OpenCV/exe/SimpleCLMImg/Release/
+OpenCV/Debug/
+OpenCV/Release/
+OpenCV/exe/SimplePuppets/Debug/
+OpenCV/exe/SimplePuppets/Release/
+OpenCV/exe/ConsolePuppets/Release/
+OpenCV/lib/local/Puppets/Debug/
+OpenCV/lib/local/Puppets/Release/
+OpenCV/lib/3rdParty/dlib/Release/
+OpenCV/lib/3rdParty/dlib/Debug/
+OpenCV/exe/FeatureExtraction/Debug/
+OpenCV/exe/FeatureExtraction/Release/
+OpenCV/lib/local/FaceAnalyser/Release/
+OpenCV/lib/local/FaceAnalyser/Debug/
+OpenCV/CMakeFiles/
+OpenCV/bin/
+OpenCV/Makefile
+OpenCV/cmake_install.cmake
+OpenCV/CMakeCache.txt
+OpenCV/videos/images_track/
+
+# =============== #
+# Unity generated #
+# =============== #
+Unity3D/Temp/
+Unity3D/Obj/
+Unity3D/UnityGenerated/
+Unity3D/Library/
+ 
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+Unity3D/ExportedObj/
+Unity3D/*.svd
+Unity3D/*.userprefs
+Unity3D/*.csproj
+Unity3D/*.pidb
+Unity3D/*.suo
+Unity3D/*.sln
+Unity3D/*.user
+Unity3D/*.unityproj
+Unity3D/*.booproj
+Unity3D/*.exe
+Unity3D/*_Data
+
+# ============ #
+# OS generated #
+# ============ #
+Unity3D/.DS_Store
+Unity3D/.DS_Store?
+Unity3D/._*
+Unity3D/.Spotlight-V100
+Unity3D/.Trashes
+Unity3D/Icon?
+Unity3D/ehthumbs.db
+Unity3D/Thumbs.db
