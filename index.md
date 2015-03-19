@@ -14,7 +14,7 @@ Our application is based on the VR display implemented in our third assignment, 
 
 ![image alt text](images/my_images/image_0.png)
 
-####### Figure 1. Main scene in the Unity3D game. The yellow fire ball is the ball the user is going to hit. The blow circle indicates the user’s blowing direction. The fixed red and white balls are the targets. The black missile flying towards the user is the object he must dodge. 
+###### Figure 1. Main scene in the Unity3D game. The yellow fire ball is the ball the user is going to hit. The blow circle indicates the user’s blowing direction. The fixed red and white balls are the targets. The black missile flying towards the user is the object he must dodge. 
 
 # 3 Implementation
 
@@ -32,7 +32,7 @@ Our application is based on the VR display implemented in our third assignment, 
 
 ![image alt text](images/my_images/image_1.png)
 
-Figure 2. System architecture
+###### Figure 2. System architecture
 
 As is shown in the figure above, our system consists of two programs running in parallel. One is the face tracker, which should be the first one to run and keeps reading data from camera, outputting eye center location, face orientation and mouth location to the server(in our case is the local host). The second program is the Unity3D game program, which is the main program that the user interacts with. It keeps receiving data from the server and updates all the virtual objects according to the received data. 
 
@@ -49,7 +49,7 @@ v = fy * y / z + cy  (2)
 
 ![image alt text](images/my_images/image_2.png)
 
-Figure 3. Face tracking result(frontal face). Green dots are the 68 tracked facial feature points, and the two light blue ellipses are fitted to the points around the face and the inner mouth points, respectively. The yellow rectangle is the bounding box of the rotated rectangle of the larger ellipse, and the center of it is indicated by the yellow dot. The blue cube indicates face orientation. The red and blue dots indicate the locations of the user’s eye center and mouth center projected on the screen. 
+###### Figure 3. Face tracking result(frontal face). Green dots are the 68 tracked facial feature points, and the two light blue ellipses are fitted to the points around the face and the inner mouth points, respectively. The yellow rectangle is the bounding box of the rotated rectangle of the larger ellipse, and the center of it is indicated by the yellow dot. The blue cube indicates face orientation. The red and blue dots indicate the locations of the user’s eye center and mouth center projected on the screen. 
 
 (u, v) is the coordinate in the image space and (x, y, z) is the coordinate in the 3D camera space. fx, fy is the focal lengths of the camera, and (cx, cy) is the coordinate of principal point. We assume that the user has provided these parameters in an input file. Since fx and fy are usually very close to each other, we can use their average value fa instead of the two different values. Therefore we computed the distance as:
 
