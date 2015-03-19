@@ -30,8 +30,6 @@
         <section id="main-content">
           <p>Authors:</p>
 
-<hr>
-
 <p>Yalun Qin(<a href="mailto:allenchin1990@gmail.com">allenchin1990@gmail.com</a>)</p>
 
 <p>Yuxiang Wang(<a href="mailto:jdit89@gmail.com">jdit89@gmail.com</a>)</p>
@@ -48,7 +46,8 @@
 
 <p><img src="images/my_images/image_0.png" alt="image alt text"></p>
 
-<p>Figure 1. Main scene in the Unity3D game. The yellow fire ball is the ball the user is going to hit. The blow circle indicates the user’s blowing direction. The fixed red and white balls are the targets. The black missile flying towards the user is the object he must dodge. </p>
+<h6>
+<a id="figure-1-main-scene-in-the-unity3d-game-the-yellow-fire-ball-is-the-ball-the-user-is-going-to-hit-the-blow-circle-indicates-the-users-blowing-direction-the-fixed-red-and-white-balls-are-the-targets-the-black-missile-flying-towards-the-user-is-the-object-he-must-dodge" class="anchor" href="#figure-1-main-scene-in-the-unity3d-game-the-yellow-fire-ball-is-the-ball-the-user-is-going-to-hit-the-blow-circle-indicates-the-users-blowing-direction-the-fixed-red-and-white-balls-are-the-targets-the-black-missile-flying-towards-the-user-is-the-object-he-must-dodge" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 1. Main scene in the Unity3D game. The yellow fire ball is the ball the user is going to hit. The blow circle indicates the user’s blowing direction. The fixed red and white balls are the targets. The black missile flying towards the user is the object he must dodge.</h6>
 
 <h1>
 <a id="3-implementation" class="anchor" href="#3-implementation" aria-hidden="true"><span class="octicon octicon-link"></span></a>3 Implementation</h1>
@@ -58,9 +57,14 @@
 
 <ul>
 <li><p>Operating system: Currently only on Windows, but the code is portable to other desktop operating systems like Linux and Mac OS. </p></li>
-<li><p>Dependencies and libraries: </p></li>
+<li>
+<p>Dependencies and libraries: </p>
+
+<ul>
 <li><p>OpenCV, Boost, dlib,  eigen, tbb, CLM, FaceAnalyser, all wrapped up in CLM-Framework(the face tracker).</p></li>
-<li><p>Unity3D 5.</p></li>
+<li><p>Unity3D 5. </p></li>
+</ul>
+</li>
 </ul>
 
 <h2>
@@ -68,7 +72,8 @@
 
 <p><img src="images/my_images/image_1.png" alt="image alt text"></p>
 
-<p>Figure 2. System architecture</p>
+<h6>
+<a id="figure-2-system-architecture" class="anchor" href="#figure-2-system-architecture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 2. System architecture</h6>
 
 <p>As is shown in the figure above, our system consists of two programs running in parallel. One is the face tracker, which should be the first one to run and keeps reading data from camera, outputting eye center location, face orientation and mouth location to the server(in our case is the local host). The second program is the Unity3D game program, which is the main program that the user interacts with. It keeps receiving data from the server and updates all the virtual objects according to the received data. </p>
 
@@ -79,11 +84,19 @@
 
 <p>After we got the 6 degrees information of the face, we can estimate the distance from the user’s face to the screen. According to the perspective projection equation , we have:</p>
 
+<pre><code>u = fx * x / z + cx  (1)
+v = fy * y / z + cy  (2)
+</code></pre>
+
 <p><img src="images/my_images/image_2.png" alt="image alt text"></p>
 
-<p>Figure 3. Face tracking result(frontal face). Green dots are the 68 tracked facial feature points, and the two light blue ellipses are fitted to the points around the face and the inner mouth points, respectively. The yellow rectangle is the bounding box of the rotated rectangle of the larger ellipse, and the center of it is indicated by the yellow dot. The blue cube indicates face orientation. The red and blue dots indicate the locations of the user’s eye center and mouth center projected on the screen. </p>
+<h6>
+<a id="figure-3-face-tracking-resultfrontal-face-green-dots-are-the-68-tracked-facial-feature-points-and-the-two-light-blue-ellipses-are-fitted-to-the-points-around-the-face-and-the-inner-mouth-points-respectively-the-yellow-rectangle-is-the-bounding-box-of-the-rotated-rectangle-of-the-larger-ellipse-and-the-center-of-it-is-indicated-by-the-yellow-dot-the-blue-cube-indicates-face-orientation-the-red-and-blue-dots-indicate-the-locations-of-the-users-eye-center-and-mouth-center-projected-on-the-screen" class="anchor" href="#figure-3-face-tracking-resultfrontal-face-green-dots-are-the-68-tracked-facial-feature-points-and-the-two-light-blue-ellipses-are-fitted-to-the-points-around-the-face-and-the-inner-mouth-points-respectively-the-yellow-rectangle-is-the-bounding-box-of-the-rotated-rectangle-of-the-larger-ellipse-and-the-center-of-it-is-indicated-by-the-yellow-dot-the-blue-cube-indicates-face-orientation-the-red-and-blue-dots-indicate-the-locations-of-the-users-eye-center-and-mouth-center-projected-on-the-screen" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 3. Face tracking result(frontal face). Green dots are the 68 tracked facial feature points, and the two light blue ellipses are fitted to the points around the face and the inner mouth points, respectively. The yellow rectangle is the bounding box of the rotated rectangle of the larger ellipse, and the center of it is indicated by the yellow dot. The blue cube indicates face orientation. The red and blue dots indicate the locations of the user’s eye center and mouth center projected on the screen.</h6>
 
 <p>(u, v) is the coordinate in the image space and (x, y, z) is the coordinate in the 3D camera space. fx, fy is the focal lengths of the camera, and (cx, cy) is the coordinate of principal point. We assume that the user has provided these parameters in an input file. Since fx and fy are usually very close to each other, we can use their average value fa instead of the two different values. Therefore we computed the distance as:</p>
+
+<pre><code>z = fa * faceMeasure / virtualMeasure 
+</code></pre>
 
 <p>faceMeasure is the distance between two face points in the world space, and virtualMeasure is the distance between two corresponding face points in the image space. Since virtualMeasure is a denominator, small change of this value may lead to large change of z, therefore we need to make sure that this value does not flicker too much, in order to make the computed z as stable as possible. We tried to simply choose two tracked facial feature points and calculate virtualMeasure between them, but since the feature points are flickering all the time, the computed z flickered quite seriously. </p>
 
@@ -98,19 +111,17 @@
 
 <p><img src="images/my_images/image_3.png" alt="image alt text"></p>
 
-<p>Figure 4. Perspective viewing frustum[5]. Black square represents the screen.</p>
+<h6>
+<a id="figure-4-perspective-viewing-frustum5-black-square-represents-the-screen" class="anchor" href="#figure-4-perspective-viewing-frustum5-black-square-represents-the-screen" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 4. Perspective viewing frustum[5]. Black square represents the screen.</h6>
 
 <p>To compute the projection matrix, we need to compute the location of left, right, top, bottom, near and far clipping planes, represented by l, r, t, b, n, f, respectively in Figure 4. Note that n and f are set manually, in our case we chose 0.5 and 1000. The rest of parameters are calculated using n, f, as well as the height and width of the screen, since we need to make sure the near plane matches the user’s screen.</p>
 
-<p>ratio = n / (-z)</p>
-
-<p>l = (-screenWidth / 2 - x) * ratio</p>
-
-<p>r = (screenWidth / 2 - x) * ratio</p>
-
-<p>t = (screenHeight / 2 - y) * ratio</p>
-
-<p>b = (-screenHeight / 2 - y) * ratio</p>
+<pre><code>ratio = n / (-z)
+l = (-screenWidth / 2 - x) * ratio
+r = (screenWidth / 2 - x) * ratio
+t = (screenHeight / 2 - y) * ratio
+b = (-screenHeight / 2 - y) * ratio
+</code></pre>
 
 <p>(x, y, z) is the location of eye center in the world coordinates.</p>
 
@@ -123,9 +134,12 @@
 
 <p>To simulate the mouth blow action, we need the position and orientation of mouth, as well as a flag indicating whether the user is blowing or not.  We could simply use the mean of inner mouth points to calculate the position of mouth, but that way the position of mouth would change a lot when the user changes the shape of his mouth. To make it invariant to the shape of the mouth, we estimated the location of mouth by first fit a line to the four eye corners(the blue line in Figure 5), and then calculate the length of the line segment formed by the four points on the nose(d).  The estimated location of mouth is 2*d from the location of eye point mean, in the direction perpendicular to the blue line(yellow dot in Figure 5). </p>
 
-<p><img src="images/my_images/image_5.png" alt="image alt text"><img src="images/my_images/image_6.png" alt="image alt text"></p>
+<p><img src="images/my_images/image_5.png" alt="image alt text" title="haha"></p>
 
-<p>Figure 5. Estimation of mouth location</p>
+<p><img src="images/my_images/image_6.png" alt="image alt text"></p>
+
+<h6>
+<a id="figure-5-estimation-of-mouth-location" class="anchor" href="#figure-5-estimation-of-mouth-location" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 5. Estimation of mouth location</h6>
 
 <p>This method can give a stable location of mouth which is invariant to the shape of mouth, however it sacrifices some accuracy, as can be seen from the right image of Figure 5. But in practice we found that this is actually not a big issue, since the user won’t be able to rotate his head horizontally to a large angle due to the limitation of the face tracker, and it can hardly be recognized by the user with just a few pixels of shift. We then computed the 3D location of it using same method as eye center. </p>
 
