@@ -24,9 +24,9 @@ Figure 1. Main scene in the Unity3D game. The yellow fire ball is the ball the u
 
 * Dependencies and libraries: 
 
-* OpenCV, Boost, dlib,  eigen, tbb, CLM, FaceAnalyser, all wrapped up in CLM-Framework(the face tracker).
+  * OpenCV, Boost, dlib,  eigen, tbb, CLM, FaceAnalyser, all wrapped up in CLM-Framework(the face tracker).
 
-* Unity3D 5.
+  * Unity3D 5. 
 
 ## 3.2 System Architecture
 
@@ -41,6 +41,11 @@ As is shown in the figure above, our system consists of two programs running in 
 Face tracking is a very crucial step in our application. The robustness and speed of our application is highly dependent on the face tracker. We found the Cambridge face tracker[2] suits our needs best, since it gives us 3d locations of eyes and mouth, as well as a stable orientation of the face. It is also quite robust, in the sense that it allows about 20 degrees of head rotation about x and y axis(in OpenCV coordinate system), and quite a large rotation about the z axis, under various reasonable lighting conditions. It also has a good real time performance, which achieves 30FPS in the best case.
 
 After we got the 6 degrees information of the face, we can estimate the distance from the user’s face to the screen. According to the perspective projection equation , we have:
+
+```
+u = fx * x / z + cx  (1)
+v = fy * y / z + cy  (2)
+```
 
 ![image alt text](images/my_images/image_2.png)
 
