@@ -34,4 +34,22 @@ To run the first program, you must provide -p option followed by the path to the
  information of other options. To run the second program, you just need to generate the binary file using Unity3D and run it 
  directly. 
  
+The parameter file is customizable(and should be). The format is as follows:
+
+```
+Physical measurement
+X coordinate of screen center relative to the camera
+Y coordinate of screen center relative to the camera
+Width of screen
+Height of screen
+X coordiante of principal point
+Y coordinate of principal point
+Fx
+Fy
+```
+
+The first 5 parameters are all in centimeter. 
+
+The order of running the two programs doesn't really matter, but it is recommended that you run the face tracker first and see if the frame rate is good (average >= 15). The frame rate is affected by the lighting condition around the player. Usually it can be as high as 30FPS if the player's face 
+
  We'll provide compiled exeutable programs soon.
