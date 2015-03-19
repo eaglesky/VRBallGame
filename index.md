@@ -14,7 +14,7 @@ Our application is based on the VR display implemented in our third assignment, 
 
 ![image alt text](images/my_images/image_0.png)
 
-Figure 1. Main scene in the Unity3D game. The yellow fire ball is the ball the user is going to hit. The blow circle indicates the user’s blowing direction. The fixed red and white balls are the targets. The black missile flying towards the user is the object he must dodge. 
+####### Figure 1. Main scene in the Unity3D game. The yellow fire ball is the ball the user is going to hit. The blow circle indicates the user’s blowing direction. The fixed red and white balls are the targets. The black missile flying towards the user is the object he must dodge. 
 
 # 3 Implementation
 
