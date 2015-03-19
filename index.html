@@ -3,31 +3,34 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
     <title>VR Ball Game by eaglesky</title>
   </head>
 
   <body>
-    <header>
+    <div id="container">
       <div class="inner">
-        <h1>VR Ball Game</h1>
-        <h2>Course project for CS290I-Mixed and Augmented Reality at UCSB</h2>
-        <a href="https://github.com/eaglesky/VRBallGame" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
+        <header>
+          <h1>VR Ball Game</h1>
+          <h2>Course project for CS290I-Mixed and Augmented Reality at UCSB</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/eaglesky/VRBallGame/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/eaglesky/VRBallGame/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/eaglesky/VRBallGame" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
           <p>Authors:</p>
 
 <p>Yalun Qin(<a href="mailto:allenchin1990@gmail.com">allenchin1990@gmail.com</a>)</p>
@@ -134,7 +137,7 @@ b = (-screenHeight / 2 - y) * ratio
 
 <p>To simulate the mouth blow action, we need the position and orientation of mouth, as well as a flag indicating whether the user is blowing or not.  We could simply use the mean of inner mouth points to calculate the position of mouth, but that way the position of mouth would change a lot when the user changes the shape of his mouth. To make it invariant to the shape of the mouth, we estimated the location of mouth by first fit a line to the four eye corners(the blue line in Figure 5), and then calculate the length of the line segment formed by the four points on the nose(d).  The estimated location of mouth is 2*d from the location of eye point mean, in the direction perpendicular to the blue line(yellow dot in Figure 5). </p>
 
-<p><img src="images/my_images/image_5.png?s=240" alt="image alt text"></p>
+<p><img src="images/my_images/image_5.png" alt="image alt text"></p>
 
 <p><img src="images/my_images/image_6.png" alt="image alt text"></p>
 
@@ -154,19 +157,22 @@ b = (-screenHeight / 2 - y) * ratio
 
 <p>We learned Unity3D from scratch and build the game in less than two weeks. Though it is somehow coarsely done, it proved that Unity3D is easy to use and could be a good platform either for fast prototyping of research project, or serious 3D/AR/VR application development.</p>
 
-<p><strong>3.7 Scene setup</strong></p>
+<h2>
+<a id="37-scene-setup" class="anchor" href="#37-scene-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.7 Scene setup</h2>
 
 <p>The basic setting of the scene is rather simple: we build a tunnel using simple cuboids. We use the data from the face tracker to adjust the size and position of the cuboids in order to make the tunnel to fill the screen.</p>
 
 <p><img src="images/my_images/image_7.png" alt="image alt text"></p>
 
-<p>Figure 6. Unity3D editor, and the basic scene setting.</p>
+<h6>
+<a id="figure-6-unity3d-editor-and-the-basic-scene-setting" class="anchor" href="#figure-6-unity3d-editor-and-the-basic-scene-setting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 6. Unity3D editor, and the basic scene setting.</h6>
 
 <p>Serious tuning on lights and textures could make more astonishing result, however, we lack the experience of being a game artist so we did that in a simpler way. We set the cuboids with textures we found online, and used two point light in the middle of the tunnel to light up the whole scene.</p>
 
 <p><img src="images/my_images/image_8.png" alt="image alt text"></p>
 
-<p>Figure 7. Scene with game ball and targets lit by point lights, from editor view.</p>
+<h6>
+<a id="figure-7-scene-with-game-ball-and-targets-lit-by-point-lights-from-editor-view" class="anchor" href="#figure-7-scene-with-game-ball-and-targets-lit-by-point-lights-from-editor-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 7. Scene with game ball and targets lit by point lights, from editor view.</h6>
 
 <p>To win the game, the player needs to use the game ball the hit all target spheres in the tunnel. We use a script to generate the targets. When the game is started, the script generates 7 targets and corresponding "poles" for the targets at random positions inside the tunnel. The game ball is an object with rigid body feature provided by Unity3D, it can respond to a force given to it, as well as affected by gravity. All objects in the scene are set to bouncy physical material, so when the ball hit another object (e.g. the targets or the walls), it can bounce off from it. Those physical simulations are all done by Unity3D. When the ball hits a target or pole, a script will be called to destroy the target object.</p>
 
@@ -174,11 +180,13 @@ b = (-screenHeight / 2 - y) * ratio
 
 <p><img src="images/my_images/image_9.png" alt="image alt text"></p>
 
-<p>Figure 8. Missile in flight, in scene editor view.</p>
+<h6>
+<a id="figure-8-missile-in-flight-in-scene-editor-view" class="anchor" href="#figure-8-missile-in-flight-in-scene-editor-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 8. Missile in flight, in scene editor view.</h6>
 
 <p>Our face tracker is written in C++, so we need to communicate between the face tracker and Unity3D application. In order to do so, we run the face tracker separately in background, and the face tracker would send tracking data to localhost (127.0.0.1) using UDP protocol. On Unity3D side, we use a script to listen to the corresponding port and parse the received package, then use the data to adjust the camera position and projection matrix.</p>
 
-<p><strong>3.8 Visual Indicators</strong></p>
+<h2>
+<a id="38-visual-indicators" class="anchor" href="#38-visual-indicators" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.8 Visual Indicators</h2>
 
 <p>During the development of the game, we found that comparing to the traditional 2D brick breaking game, we need more visual indicators in this 3D scene. </p>
 
@@ -186,25 +194,30 @@ b = (-screenHeight / 2 - y) * ratio
 
 <p><img src="images/my_images/image_10.png" alt="image alt text"><img src="images/my_images/image_11.png" alt="image alt text"></p>
 
-<p>Figure 9. Left: depth indicator (the transparent frame) in editor view. Right: depth indicator in real game play, as highlighted.</p>
+<h6>
+<a id="figure-9-left-depth-indicator-the-transparent-frame-in-editor-view-right-depth-indicator-in-real-game-play-as-highlighted" class="anchor" href="#figure-9-left-depth-indicator-the-transparent-frame-in-editor-view-right-depth-indicator-in-real-game-play-as-highlighted" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 9. Left: depth indicator (the transparent frame) in editor view. Right: depth indicator in real game play, as highlighted.</h6>
 
 <p>Another issue is that the player needs to know which direction he/she is blowing the ball. We read the face position from the face tracker, then create a capsule-shaped mesh pointing from the face position tunnel, and the orientation of this mesh is determined by the data transferred from the face tracker, indicating the direction that the user is blowing the ball to. The collider of this indicator is disabled, so it would not affect the bounce of the ball. The color of the capsule indicates the mouth status---blowing(yellow), not blowing(blue), or blowing and hitting the ball(red). Similarly, we also draw a texture of frame at the face position on screen.</p>
 
 <p><img src="images/my_images/image_12.png" alt="image alt text"><img src="images/my_images/image_13.png" alt="image alt text"></p>
 
-<p>Figure 10. Left: blow direction indicator (long cylinder) in editor view. Right: blow direction indicator in real game play.</p>
+<h6>
+<a id="figure-10-left-blow-direction-indicator-long-cylinder-in-editor-view-right-blow-direction-indicator-in-real-game-play" class="anchor" href="#figure-10-left-blow-direction-indicator-long-cylinder-in-editor-view-right-blow-direction-indicator-in-real-game-play" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 10. Left: blow direction indicator (long cylinder) in editor view. Right: blow direction indicator in real game play.</h6>
 
 <p>When the ball is out of the tunnel or a missile hit the player, we would like to see some special effect to can make the game more immersive. So when the ball is out or the missile hit the end of the tunnel, we put a 2D sprite of broken glass at the hit position: it looks like the screen is broken by the ball or missile.</p>
 
 <p><img src="images/my_images/image_14.png" alt="image alt text"></p>
 
-<p>Figure 11. Glass breaking effect.</p>
+<h6>
+<a id="figure-11-glass-breaking-effect" class="anchor" href="#figure-11-glass-breaking-effect" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 11. Glass breaking effect.</h6>
 
-<p><strong>3.9 Game Logic</strong></p>
+<h2>
+<a id="39-game-logic" class="anchor" href="#39-game-logic" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.9 Game Logic</h2>
 
 <p><img src="images/my_images/image_15.png" alt="image alt text"></p>
 
-<p>Figure 12 . Game logic flowchart.</p>
+<h6>
+<a id="figure-12--game-logic-flowchart" class="anchor" href="#figure-12--game-logic-flowchart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 12 . Game logic flowchart.</h6>
 
 <p>The game starts from a start screen. After the player clicks "Start Game" button, the ball is released to the tunnel and the player could blow the ball to hit the targets. When all the targets are eliminated, it will jump to the success screen, and the player could click the button to start another round. When the ball falls out of the tunnel, the fall out screen would show up and a “Reset ball” button would also appear. The player still have the chance to blow the ball back to the tunnel, but clicking the button would reset the ball to the initial position. If the player is hit by the missile, the game will immediately jump to game over scene, and the player could restart the game by clicking the button. </p>
 
@@ -266,23 +279,13 @@ b = (-screenHeight / 2 - y) * ratio
 <p>[12] <a href="http://unity3d.com/learn/tutorials/modules">http://unity3d.com/learn/tutorials/modules</a></p>
         </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/eaglesky/VRBallGame/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/eaglesky/VRBallGame/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+        <footer>
+          VR Ball Game is maintained by <a href="https://github.com/eaglesky">eaglesky</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
 
-          <p class="repo-owner"><a href="https://github.com/eaglesky/VRBallGame"></a> is maintained by <a href="https://github.com/eaglesky">eaglesky</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
+        
       </div>
     </div>
-
-  
   </body>
 </html>
