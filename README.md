@@ -56,6 +56,11 @@ We'll provide compiled exeutable programs soon.
  
 ## Game Guide and Tips
 
+### Game control
+
+If you want to exit the tracker, switch to it and press 'q' key.
+In the game program, press 'r' to reset the ball if it is out. 
+
 ### Visual indicators
 
 It is very important to pay attention to the visual indicators while you are playing the game. Please refer to our report for more details about them. Basically the indicators are :
