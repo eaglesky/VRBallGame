@@ -20,6 +20,7 @@ Binary files can only be executed on Windows.
 
 If you want to build the source code, you need to have Visual Studio 2010/2012 and Unity3D 5 installed on your machine.
 
+**Note that the reason why our code can only be built on Windows is just because of the UDP API we used. You can replace it with the corresponding API in your OS(Mac or Linux) and then you should be able to build the code on that OS, since both the face tracker and Unity are cross-platform. It would be great if you could come up with a way to make that API cross-platform too, and you're welcome to submit a pull request for this.** 
 
 ## Building the application
 
@@ -50,6 +51,6 @@ Fy
 
 The first 5 parameters are all in centimeter. 
 
-The order of running the two programs doesn't really matter, but it is recommended that you run the face tracker first and see if the frame rate is good (average >= 15). The frame rate is affected by the lighting condition around the player. Usually it can be as high as 30FPS if the player's face 
+The order of running the two programs doesn't really matter, but it is recommended that you run the face tracker first and see if the frame rate is good (average >= 15). The frame rate is affected by the lighting condition around the player. Usually it can be as high as 30FPS if the player's face is brighter than the background. 
 
  We'll provide compiled exeutable programs soon.
