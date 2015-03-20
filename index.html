@@ -47,7 +47,7 @@
 
 <p>Our application is based on the VR display implemented in our third assignment, which enables the user to view an artificial 3D scene by moving his head. The 3D scene we are going to implement consists of a big 3D room, some randomly generated targets, a ball and flying missiles. It is a physical environment, so all of the virtual objects in it are affected by forces like gravity. The goal of the game is to destroy all the targets by blowing the ball and let the ball hit the targets. There will also be some missiles flying towards the user, and he must dodge them by moving his head. Game will be over if the user is hit by the missile. </p>
 
-<p><img src="images/my_images/image_0.png" alt="image alt text"></p>
+<p><img src="images/my_images/image_0.png" width="600px"></p>
 
 <h6>
 <a id="figure-1-main-scene-in-the-unity3d-game-the-yellow-fire-ball-is-the-ball-the-user-is-going-to-hit-the-blow-circle-indicates-the-users-blowing-direction-the-fixed-red-and-white-balls-are-the-targets-the-black-missile-flying-towards-the-user-is-the-object-he-must-dodge" class="anchor" href="#figure-1-main-scene-in-the-unity3d-game-the-yellow-fire-ball-is-the-ball-the-user-is-going-to-hit-the-blow-circle-indicates-the-users-blowing-direction-the-fixed-red-and-white-balls-are-the-targets-the-black-missile-flying-towards-the-user-is-the-object-he-must-dodge" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 1. Main scene in the Unity3D game. The yellow fire ball is the ball the user is going to hit. The blow circle indicates the user’s blowing direction. The fixed red and white balls are the targets. The black missile flying towards the user is the object he must dodge.</h6>
@@ -91,7 +91,7 @@
 v = fy * y / z + cy  (2)
 </code></pre>
 
-<p><img src="images/my_images/image_2.png" alt="image alt text"></p>
+<p><img src="images/my_images/image_2.png" width="600px"></p>
 
 <h6>
 <a id="figure-3-face-tracking-resultfrontal-face-green-dots-are-the-68-tracked-facial-feature-points-and-the-two-light-blue-ellipses-are-fitted-to-the-points-around-the-face-and-the-inner-mouth-points-respectively-the-yellow-rectangle-is-the-bounding-box-of-the-rotated-rectangle-of-the-larger-ellipse-and-the-center-of-it-is-indicated-by-the-yellow-dot-the-blue-cube-indicates-face-orientation-the-red-and-blue-dots-indicate-the-locations-of-the-users-eye-center-and-mouth-center-projected-on-the-screen" class="anchor" href="#figure-3-face-tracking-resultfrontal-face-green-dots-are-the-68-tracked-facial-feature-points-and-the-two-light-blue-ellipses-are-fitted-to-the-points-around-the-face-and-the-inner-mouth-points-respectively-the-yellow-rectangle-is-the-bounding-box-of-the-rotated-rectangle-of-the-larger-ellipse-and-the-center-of-it-is-indicated-by-the-yellow-dot-the-blue-cube-indicates-face-orientation-the-red-and-blue-dots-indicate-the-locations-of-the-users-eye-center-and-mouth-center-projected-on-the-screen" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 3. Face tracking result(frontal face). Green dots are the 68 tracked facial feature points, and the two light blue ellipses are fitted to the points around the face and the inner mouth points, respectively. The yellow rectangle is the bounding box of the rotated rectangle of the larger ellipse, and the center of it is indicated by the yellow dot. The blue cube indicates face orientation. The red and blue dots indicate the locations of the user’s eye center and mouth center projected on the screen.</h6>
@@ -162,14 +162,14 @@ b = (-screenHeight / 2 - y) * ratio
 
 <p>The basic setting of the scene is rather simple: we build a tunnel using simple cuboids. We use the data from the face tracker to adjust the size and position of the cuboids in order to make the tunnel to fill the screen.</p>
 
-<p><img src="images/my_images/image_7.png" alt="image alt text"></p>
+<p><img src="images/my_images/image_7.png" width="600px"></p>
 
 <h6>
 <a id="figure-6-unity3d-editor-and-the-basic-scene-setting" class="anchor" href="#figure-6-unity3d-editor-and-the-basic-scene-setting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 6. Unity3D editor, and the basic scene setting.</h6>
 
 <p>Serious tuning on lights and textures could make more astonishing result, however, we lack the experience of being a game artist so we did that in a simpler way. We set the cuboids with textures we found online, and used two point light in the middle of the tunnel to light up the whole scene.</p>
 
-<p><img src="images/my_images/image_8.png" alt="image alt text"></p>
+<p><img src="images/my_images/image_8.png" width="600px"></p>
 
 <h6>
 <a id="figure-7-scene-with-game-ball-and-targets-lit-by-point-lights-from-editor-view" class="anchor" href="#figure-7-scene-with-game-ball-and-targets-lit-by-point-lights-from-editor-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 7. Scene with game ball and targets lit by point lights, from editor view.</h6>
@@ -178,7 +178,7 @@ b = (-screenHeight / 2 - y) * ratio
 
 <p>To make the game more fun, we add a feature: missiles would be generated at the end of the tunnel, and the player needs to dodge the missile by not letting the missile hit the projected face on the screen. We set up a timer in the script the generate the missile, and set the X-Y coordinate of the missile as the current X-Y coordinate of the camera in world space. The world space position of the missile is updated on frame-by-frame basis, and we check if the missile has arrived the other end of the tunnel, then see if it hits the current face position (camera position) when it arrives.</p>
 
-<p><img src="images/my_images/image_9.png" alt="image alt text"></p>
+<p><img src="images/my_images/image_9.png" width="600px"></p>
 
 <h6>
 <a id="figure-8-missile-in-flight-in-scene-editor-view" class="anchor" href="#figure-8-missile-in-flight-in-scene-editor-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 8. Missile in flight, in scene editor view.</h6>
@@ -192,7 +192,8 @@ b = (-screenHeight / 2 - y) * ratio
 
 <p>The first thing we noticed is that the player may lose depth perception in this tunnel scene. It is hard for the player to know where the ball is in tunnel and it is easy to let the ball fly out of the tunnel. To fix this we added a transparent frame in the tunnel indicating the depth of the ball. The frame is set to transparent material and sticks to the wall; it is bounded to the ball, so the z coordinate of the frame equals to ball's. This frame would give the player a clue of the depth of the ball.</p>
 
-<p><img src="images/my_images/image_10.png" alt="image alt text"><img src="images/my_images/image_11.png" alt="image alt text"></p>
+<p><img align="left" src="images/my_images/image_10.png" width="310px">
+<img src="images/my_images/image_11.png" width="310px"></p>
 
 <h6>
 <a id="figure-9-left-depth-indicator-the-transparent-frame-in-editor-view-right-depth-indicator-in-real-game-play-as-highlighted" class="anchor" href="#figure-9-left-depth-indicator-the-transparent-frame-in-editor-view-right-depth-indicator-in-real-game-play-as-highlighted" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figure 9. Left: depth indicator (the transparent frame) in editor view. Right: depth indicator in real game play, as highlighted.</h6>
