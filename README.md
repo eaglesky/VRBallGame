@@ -52,9 +52,9 @@ The first 5 parameters are all in centimeter. It is recommended that you do all 
 
 The order of running the two programs doesn't really matter, but it is recommended that you run the face tracker first and see if the frame rate is good (average >= 15). The frame rate is affected by the lighting condition around the player. Usually it can be as high as 30FPS if the player's face is brighter than the background. After you've got this work properly, you can launch the Unity program and enjoy the game!
 
- We'll provide compiled exeutable programs soon.
+We'll provide compiled exeutable programs soon.
  
- ## Game Guide and Tips
+## Game Guide and Tips
 
 It is very important to pay attention to the visual indicators while you are playing the game. Please refer to our report for more details about them. Basically the indicators are :
 
