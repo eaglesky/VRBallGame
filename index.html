@@ -148,8 +148,8 @@ b = (-screenHeight / 2 - y) * ratio
 
 <p>Since we assume that the blow direction is the same as the orientation of the face, we simply used the pitch, yaw and roll angles returned by the face tracker to estimate the direction. To visualize this, we rendered a virtual capsule indicating the blow direction(see 3.8 for details). </p>
 
-<p><img align="left" src="images/my_images/mouth0.png" height="400px">
-<img align="left" src="images/my_images/mouth1.png" height="400px"></p>
+<p><img align="left" src="images/my_images/mouth0.png" height="200px">
+<img align="left" src="images/my_images/mouth1.png" height="200px"></p>
 
 <p>To detect whether the user blows or not, we fitted an ellipse to the inner mouth points and check whether the ratio of its height to width is bigger than a threshold. If a blow action is detected, then we check whether the virtual ball is blown or not. We did this by modeling the blow rangle as a cone and set the opening angle to be some value, and then check whether the ball is inside it or not. We haven’t implemented the visualization of the cone yet, but it doesn’t matter much since the user only needs to know where he is blowing at and he can gradually feel the blowing rangle as he is playing the game. The blow force is inverse linear to the distance between the mouth and the ball.</p>
 
