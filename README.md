@@ -16,11 +16,11 @@ Yuxiang Wang([jdit89@gmail.com](mailto:jdit89@gmail.com))
 
 ## System requirement:
 
-Binary files can only be executed on 64-bit Windows.
-
 If you want to build the source code, you need to have Visual Studio 2010/2012 and Unity3D 5 installed on your machine.
 
 **Note that the reason why our code can only be built on Windows is just because of the UDP API we used. You can replace it with the corresponding API in your OS(Mac or Linux) and then you should be able to build the code on that OS, since both the face tracker and Unity are cross-platform. It would be great if you could come up with a way to make that API cross-platform too, and you're welcome to submit a pull request for this.** 
+
+Hardware requirement: Webcamera.
 
 ## Building the application
 
@@ -34,7 +34,6 @@ To run the first program, you must provide -p option followed by the path to the
  information of other options. To run the second program, you just need to generate the binary file using Unity3D and run it 
  directly. 
  
-We've provided executables in Bin folder. (SimpleCLM.exe is the first program and vr.exe is the second one, only tested on 64-bit Windows machine)
 
 The parameter file is customizable(and should be). The format is as follows:
 
