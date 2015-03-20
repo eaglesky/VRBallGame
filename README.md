@@ -56,11 +56,17 @@ We'll provide compiled exeutable programs soon.
  
 ## Game Guide and Tips
 
+### Visual indicators
+
 It is very important to pay attention to the visual indicators while you are playing the game. Please refer to our report for more details about them. Basically the indicators are :
 
 * Yellow rectangle, which is the bounding box of your head in the **Camera image** . You must make sure that this always stays within your screen range, otherwise it indicates that your head is out of the field of view of your camera and the tracking result is not correct at all, and you will not be able to see a correct scence. 
 
 * Blue circle, which indicates where you are blowing at. Red color of it means that your blow action is detected and also the ball is within your blowing range. Yellow color of it means that your blow action is detected but the ball is not within your blowing range. Original blue color means all the other cases. 
 
-* Moving frame, which can be seen as something like a shadow of the fireball, indicating the depth of the ball in the tunnel. 
+* Moving frame, which can be seen as something like a shadow of the fireball, indicating the depth of the ball in the tunnel.
+
+### Blow tips
+
+
 
