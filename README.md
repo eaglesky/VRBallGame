@@ -71,3 +71,9 @@ It is very important to pay attention to the visual indicators while you are pla
 * Make sure you've changed your mouth as close to a round shape as possible, if you want to "blow". Otherwise, keep your mouth closed. Refer to Figure 6 and the paragraph below in our report for more information.
 
 * Don't keep blowing. Impulse often works better.
+
+## Acknowledgment
+
+* CLM-Framework(Cambridge Face Tracker) developed by Tadas Baltrusaitis, [https://github.com/TadasBaltrusaitis/CLM-framework]([https://github.com/TadasBaltrusaitis/CLM-framework])
+
+* Our SocketClient.cs is based on the script in [https://github.com/hasanavi/OpenCV-Unity3D-Object-Tracking] 
