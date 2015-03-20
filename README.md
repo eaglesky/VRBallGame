@@ -76,4 +76,4 @@ It is very important to pay attention to the visual indicators while you are pla
 
 * CLM-Framework(Cambridge Face Tracker) developed by Tadas Baltrusaitis, [https://github.com/TadasBaltrusaitis/CLM-framework]([https://github.com/TadasBaltrusaitis/CLM-framework])
 
-* Our SocketClient.cs is based on the script in [https://github.com/hasanavi/OpenCV-Unity3D-Object-Tracking] 
+* Our SocketClient.cs is based on the script in [https://github.com/hasanavi/OpenCV-Unity3D-Object-Tracking](https://github.com/hasanavi/OpenCV-Unity3D-Object-Tracking)
