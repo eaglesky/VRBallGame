@@ -30,8 +30,7 @@ program. The second program can be built using Unity3D.
 
 ## Running the programs
 
-To run the first program, you must provide -p option followed by the path to the paremeter file, which is /OpenCV/my_parameters.txt.
-(of course it must be relative to the location of the executable program). Refer to the readme files in the OpenCV folder for
+To run the first program, you must provide -p option followed by the path to the paremeter file. We've included one that you can try(/OpenCV/my_parameters.txt). Refer to the readme files in the OpenCV folder for
  information of other options. To run the second program, you just need to generate the binary file using Unity3D and run it 
  directly. 
  
@@ -49,8 +48,19 @@ Fx
 Fy
 ```
 
-The first 5 parameters are all in centimeter. 
+The first 5 parameters are all in centimeter. It is recommended that you do all the above calibration, however if you're lazy, please at least do the first five measurements. The more measurement you do, the better gaming experience you'll get. You can get the last four parameters by using OpenCV. Also you may ignore this and just use the default parameter file that we provided, and if you are satisfied with the result, don't change anything.
 
-The order of running the two programs doesn't really matter, but it is recommended that you run the face tracker first and see if the frame rate is good (average >= 15). The frame rate is affected by the lighting condition around the player. Usually it can be as high as 30FPS if the player's face is brighter than the background. 
+The order of running the two programs doesn't really matter, but it is recommended that you run the face tracker first and see if the frame rate is good (average >= 15). The frame rate is affected by the lighting condition around the player. Usually it can be as high as 30FPS if the player's face is brighter than the background. After you've got this work properly, you can launch the Unity program and enjoy the game!
 
  We'll provide compiled exeutable programs soon.
+ 
+ ## Game Guide and Tips
+
+It is very important to pay attention to the visual indicators while you are playing the game. Please refer to our report for more details about them. Basically the indicators are :
+
+* Yellow rectangle, which is the bounding box of your head in the ** Camera image **. You must make sure that this always stays within your screen range, otherwise it indicates that your head is out of the field of view of your camera and the tracking result is not correct at all, and you will not be able to see a correct scence. 
+
+* Blue circle, which indicates where you are blowing at. Red color of it means that your blow action is detected and also the ball is within your blowing range. Yellow color of it means that your blow action is detected but the ball is not within your blowing range. Original blue color means all the other cases. 
+
+* Moving frame, which can be seen as something like a shadow of the fireball, indicating the depth of the ball in the tunnel. 
+
