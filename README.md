@@ -16,7 +16,7 @@ Yuxiang Wang([jdit89@gmail.com](mailto:jdit89@gmail.com))
 
 ## System requirement:
 
-Binary files can only be executed on Windows.
+Binary files can only be executed on 64-bit Windows.
 
 If you want to build the source code, you need to have Visual Studio 2010/2012 and Unity3D 5 installed on your machine.
 
@@ -34,6 +34,8 @@ To run the first program, you must provide -p option followed by the path to the
  information of other options. To run the second program, you just need to generate the binary file using Unity3D and run it 
  directly. 
  
+We've provided executables in Bin folder. (SimpleCLM.exe is the first program and vr.exe is the second one, only tested on 64-bit Windows machine)
+
 The parameter file is customizable(and should be). The format is as follows:
 
 ```
@@ -52,7 +54,6 @@ The first 5 parameters are all in centimeter. It is recommended that you do all 
 
 The order of running the two programs doesn't really matter, but it is recommended that you run the face tracker first and see if the frame rate is good (average >= 15). The frame rate is affected by the lighting condition around the player. Usually it can be as high as 30FPS if the player's face is brighter than the background. After you've got this work properly, you can launch the Unity program and enjoy the game!
 
-We'll provide compiled exeutable programs soon.
  
 ## Game Guide and Tips
 
