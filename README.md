@@ -69,4 +69,5 @@ It is very important to pay attention to the visual indicators while you are pla
 ### Blow tips
 
 * Make sure you've changed your mouth as close to a round shape as possible, if you want to "blow". Otherwise, keep your mouth closed. Refer to Figure 6 and the paragraph below in our report for more information.
+
 * Don't keep blowing. Impulse often works better.
