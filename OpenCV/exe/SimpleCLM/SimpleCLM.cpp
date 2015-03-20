@@ -189,8 +189,8 @@ void processPoints(const Mat_<double>& shape2D, Point3f& trackedWorldPos, Point3
 	
 	
 	Point2f mouthPt(eyePt.x + orthoVec[0] * dis * 2, eyePt.y + orthoVec[1] * dis * 2);
-	line(img, eyePt, mouthPt, Scalar(0, 0, 255));
-	circle(img, mouthPt, 3, Scalar(0, 255, 255), -1);
+	//line(img, eyePt, mouthPt, Scalar(0, 0, 255));
+	//circle(img, mouthPt, 3, Scalar(0, 255, 255), -1);
 
 	/*sum_x = 0;
 	sum_y = 0;
@@ -210,7 +210,7 @@ void processPoints(const Mat_<double>& shape2D, Point3f& trackedWorldPos, Point3
 	}
 	RotatedRect mouthRR = fitEllipse(innerMouthPoints);
 
-	//ellipse(img, mouthRR, Scalar(255, 100, 0));
+	ellipse(img, mouthRR, Scalar(255, 100, 0));
 
 	double rrWidth = (mouthRR.size.width < 1) ? 1 : mouthRR.size.width;
 	double rrHeight = mouthRR.size.height;
